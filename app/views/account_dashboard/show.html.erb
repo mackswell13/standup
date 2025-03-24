@@ -3,7 +3,11 @@
 
   <h2 class="my-5">Users:</h2>
 
-  <div class="w-full">
+  <div class="my-5 w-full">
     <%= render template: 'users/index' %>
+  </div>
+  
+  <div>
+    <%= link_to "Invite Users", new_invitation_path, class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
   </div>
 </div>
