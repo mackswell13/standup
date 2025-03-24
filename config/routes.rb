@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
 
-  resources :users, only: [ :new, :create ]
   resources :companies, only: [ :new, :create ]
 
+
+  resources :users, only: [ :new, :create, :edit, :update ] do
+    get "setup", on: :member
+  end
 
   resource :account_dashboard, only: [ :show ], path: "account"
 
