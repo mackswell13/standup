@@ -1,0 +1,9 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl"><%= @user.company.name %></h1>
+
+  <h2 class="my-5">Users:</h2>
+
+  <div class="w-full">
+    <%= render template: 'users/index' %>
+  </div>
+</div>
