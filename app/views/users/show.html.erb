@@ -3,5 +3,6 @@
 
   <% if !@user.company %>
     <h3>It Looks Like You Don't Have a Company Yet</h3>
+    <%= link_to "Setup Company", new_company_path %>
   <% end %>
 </div>

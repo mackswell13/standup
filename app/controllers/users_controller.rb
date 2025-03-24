@@ -6,11 +6,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-
-    if @user != Current.user
-      redirect_to user_path(Current.user)
-    end
   end
 
   def create
@@ -18,7 +13,7 @@ class UsersController < ApplicationController
 
     if @user.save
       start_new_session_for @user
-      redirect_to @user
+      redirect_to account_dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
