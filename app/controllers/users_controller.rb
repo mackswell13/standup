@@ -36,20 +36,22 @@ class UsersController < ApplicationController
     end
   end
 
-  private def user_create_params
+  private
+
+  def user_create_params
     params.require(:user).permit(:email_address, :password, :password_confirmation)
   end
 
-  private def user_setup_params
+  def user_setup_params
     params.require(:user).permit(:first_name, :last_name)
   end
 
-  private def correct_user
+  def correct_user
     @user = User.find(params[:id])
     redirect_to root_path unless @user == Current.user
   end
 
-  private def set_is_setup
+  def set_is_setup
     @user = User.find(params[:id])
     if @user.first_name && @user.last_name
       @user.is_setup = true
