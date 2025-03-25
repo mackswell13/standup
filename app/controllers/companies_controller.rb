@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
       Current.user.company = @company
       puts Current.user.inspect
       Current.user.save!
-      redirect_to Current.user
+      redirect_to root_path
     end
   end
 

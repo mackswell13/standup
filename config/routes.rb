@@ -5,10 +5,11 @@ Rails.application.routes.draw do
 
   resources :companies, only: [ :new, :create ]
 
-
   resources :users, only: [ :new, :create, :edit, :update ] do
     get "setup", on: :member
   end
+
+  resources :invitations
 
   resource :account_dashboard, only: [ :show ], path: "account"
 

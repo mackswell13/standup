@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_24_004711) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_24_135905) do
   create_table "companies", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.string "email_address", null: false
+    t.string "token", null: false
+    t.integer "company_id", null: false
+    t.boolean "used", null: false
+    t.datetime "expires_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_invitations_on_company_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -39,6 +50,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_24_004711) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "invitations", "companies"
   add_foreign_key "sessions", "users"
   add_foreign_key "users", "companies"
 end
