@@ -8,6 +8,7 @@ class AccountDashboardController < ApplicationController
     is_setup?
     @user = Current.user
     @users = User.all.where(company_id: Current.user.company.id)
+    @invitations = Invitation.where(company: Current.user.company)
   end
 
 

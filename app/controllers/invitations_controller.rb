@@ -8,7 +8,6 @@ class InvitationsController < ApplicationController
     @invitation.company = Current.user.company
 
     @invitation.save
-
     redirect_to root_path
   end
 
